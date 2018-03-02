@@ -1,0 +1,8 @@
+{
+  "name": "agency-mobile",
+  "app_id": "4be31f05",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,41 @@
+<ion-content padding class='background'>
+  <div class="spacer" style="height:40px;" id=""></div>
+  <div text-center>
+    <img src="assets/imgs/logo-icon.png" style="width: 90px; height: 90px;"/>  
+  </div>
+  <form #loginForm="ngForm" (ngSubmit)="doLogin()" autocomplete="off">    
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item class="item item-trns text-center">
+            <ion-label floating>
+              <ion-icon name="mail"></ion-icon>
+            </ion-label>
+            <ion-input name="email" id="emailField" type="text" required [(ngModel)]="loginData.email"></ion-input>
+          </ion-item>
+          <ion-item class="item item-trns text-center">
+            <ion-label floating>
+              <ion-icon name="unlock"></ion-icon>
+            </ion-label>
+            <ion-input name="password" id="passwordField" type="password" required [(ngModel)]="loginData.password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <div class="spacer" style="height:40px;" id=""></div>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="primary" round full type="submit" [disabled]="!loginForm.form.valid">Entrar
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-row>
+    <ion-col>
+      <div text-center>
+        <button clear (click)="showPageRegister()" style="background: transparent !important; color: white" >Criar nova conta</button>  
+      </div>      
+    </ion-col>
+  </ion-row>
+</ion-content>

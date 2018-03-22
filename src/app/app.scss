@@ -14,3 +14,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.primary{
+	background-color: #fcc308 !important;
+}
+
+.secondary{
+	background-color: #6e3d85 !important;
+}
+
+.background {
+	background-color: #6e3d85;
+}
+
+.item.item-trns {
+	border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white; 
+}

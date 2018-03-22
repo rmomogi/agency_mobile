@@ -1,0 +1,53 @@
+<ion-content padding class='background'>
+  <div class="spacer" style="height:40px;" id=""></div>
+  <div text-center>
+    <img src="assets/imgs/logo-icon.png" style="width: 90px; height: 90px;"/>  
+  </div>
+	<form #registerForm="ngForm" (ngSubmit)="doRegister()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item class="item item-trns text-center">
+            <ion-label floating>
+              <ion-icon name="person"></ion-icon> Nome
+            </ion-label>
+            <ion-input name="fullname" id="fullnameField" type="text" required [(ngModel)]="registerData.fullName">
+              </ion-input>
+          </ion-item >
+          <ion-item class="item item-trns text-center">
+            <ion-label floating>
+              <ion-icon name="mail"></ion-icon> E-mail
+            </ion-label>
+            <ion-input name="email" id="emailField" type="email" required [(ngModel)]="registerData.email"></ion-input>
+          </ion-item>
+          <!--
+          <ion-item class="item item-trns text-center">
+            <ion-input placeholder="Celular" name="phone" id="phoneField" type="text" required [(ngModel)]="registerData.phone"></ion-input>
+          </ion-item>
+          -->
+          <ion-item class="item item-trns text-center">
+            <ion-label floating>
+              <ion-icon name="lock"></ion-icon> Password
+            </ion-label>
+            <ion-input name="password" id="passwordField" type="password" required [(ngModel)]="registerData.password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <div text-center>
+          <button ion-button class="primary" round full type="submit" [disabled]="!registerForm.form.valid">Cadastrar</button>  
+        </div>        
+      </ion-col>
+    </ion-row>    
+  </form>
+  <ion-row>
+    <ion-col>
+      <div text-center>
+        <button clear (click)="showPageLogin()" style="background: transparent !important; color: white" >Já tenho conta</button>  
+      </div>      
+    </ion-col>
+  </ion-row>
+</ion-content>

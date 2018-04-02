@@ -1,4 +1,5 @@
 import { Http , Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -6,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   private url = 'http://localhost:8080/';
   
-  constructor(public http: Http) {
+  constructor(public http: Http, public storage: Storage) {
   	console.log('AuthService Provider')    
   }
 
@@ -23,8 +24,8 @@ export class AuthService {
     
   	return new Promise((resolve, reject) => {
   		this.http.post(this.url + 'oauth/token', params, new RequestOptions({ headers: header }))
-  			.subscribe(res => {
-          localStorage.setItem('token', res.json())
+  			.subscribe(res => {          
+          this.storage.set('token', res.json())          
   				resolve();
   			}, (err) => {
     			reject(err.json());

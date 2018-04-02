@@ -1,0 +1,10 @@
+<ion-content class='background'>
+	<ion-list>
+		<ion-card *ngFor="let item of services">		
+		  <ion-card-header>{{ item.name }} </ion-card-header>		
+		  <ion-card-content>
+		    {{ item.description }}
+		  </ion-card-content>		
+		</ion-card>
+	</ion-list>
+</ion-content>

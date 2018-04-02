@@ -9,6 +9,12 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { IntroPage } from '../pages/intro/intro';
 import { IntroSlidePage } from '../pages/intro-slide/intro-slide';
+import { ServicePage } from '../pages/service/service';
+import { PackagePage } from '../pages/package/package';
+import { CheckoutPage } from '../pages/checkout/checkout';
+import { OrderPage } from '../pages/order/order';
+import { ConfigPage } from '../pages/config/config';
+import { ChatPage } from '../pages/chat/chat';
 
 import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
@@ -22,7 +28,13 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     IntroPage,
-    IntroSlidePage
+    IntroSlidePage,
+    ServicePage,
+    PackagePage,
+    CheckoutPage,
+    OrderPage,
+    ConfigPage,
+    ChatPage
   ],
   imports: [
     BrowserModule, HttpModule, HttpClientModule,
@@ -36,7 +48,13 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     IntroPage,
-    IntroSlidePage
+    IntroSlidePage,
+    ServicePage,
+    PackagePage,
+    CheckoutPage,
+    OrderPage,
+    ConfigPage,
+    ChatPage
   ],
   providers: [
     StatusBar,

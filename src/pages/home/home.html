@@ -1,9 +1,13 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content padding class='background no-scroll'>
+	<div class="spacer" style="height:40px;" id=""></div>
+  <div text-center>
+    <img src="assets/imgs/logo-icon.png" style="width: 90px; height: 90px;"/>  
+  </div>
 
-<ion-content padding>
-
+	<ion-tabs>
+	  <ion-tab [root]="checkout" tabTitle="Serviços" style="color: #fcc308; font-size: 0.7em;"></ion-tab>
+	  <ion-tab [root]="order" tabTitle="Pedidos"></ion-tab>	  
+	  <ion-tab [root]="chat" tabTitle="Chat"></ion-tab>	  
+	  <ion-tab [root]="config" tabTitle="Config"></ion-tab>	  
+	</ion-tabs>
 </ion-content>

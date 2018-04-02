@@ -27,8 +27,21 @@
 	background-color: #6e3d85;
 }
 
+.background-secondary {
+	background-color: #fcc308;
+}
+
 .item.item-trns {
 	border-color: rgba(0, 0, 0, 0);
 	background-color: rgba(0, 0, 0, 0);
 	color: white; 
 }
+
+.tab-item-active{
+  background:green;
+}
+
+scroll-content {
+	overflow-y: auto;
+}
+

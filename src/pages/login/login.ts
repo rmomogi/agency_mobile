@@ -26,6 +26,7 @@ export class LoginPage {
     this.authService.login(this.loginData).then((result) => {
       this.loading.dismiss();
       this.nav.setRoot(HomePage);
+      this.storage.set('logged', true)
     }, (err) => {      
       this.loading.dismiss();
       this.presentToast('O e-mail ou a senha está incorretas!');
@@ -59,11 +60,18 @@ export class LoginPage {
   }
 
   ionViewDidLoad(): void {
+    
     this.storage.get('intro-done').then(done => {
       if (!done) {
         this.storage.set('intro-done', true);
         this.nav.setRoot(IntroPage);
       }
-    });    
+    });
+
+    this.storage.get('logged').then(done => {
+      if (done){
+        this.nav.setRoot(HomePage);
+      }
+    })    
   }
 }

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { ServiceProvider } from '../../providers/service/service'
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { ServiceProvider } from '../../providers/service/service';
+import { ServicePage } from '../service/service'
+import { PackagePage } from '../package/package'
+import { LoginPage } from '../login/login'
 
 @IonicPage()
 @Component({
@@ -9,24 +12,43 @@ import { ServiceProvider } from '../../providers/service/service'
   templateUrl: 'checkout.html',
 })
 export class CheckoutPage {
+  
+  public services = []
+  public packages = []
 
-	public services:any
-	public packages:any
-	
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage) {
+  servicePage = ServicePage
+  packagePage = PackagePage
 
-  	this.storage.get('services').then(services => {  		
-      this.services = services;
-    })  
-
-    this.storage.get('packages').then(packages => {    	
-      this.packages = packages;
-    })  
-
-  }
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public toastCtrl:ToastController,
+              public serviceProvider:ServiceProvider,
+              public storage: Storage) {    
+  }  
 
   ionViewDidLoad() {
-
+    this.serviceProvider.get().then((result) => {      
+      for(let item of result){
+        if(item.package){
+          this.packages.push(item)
+        }else{
+          this.services.push(item)
+        }
+      }
+    }, (err) => {
+      this.presentToast('A sua sessão expirou!')
+      this.storage.set('logged', false)
+      this.navCtrl.setRoot(LoginPage)
+    })    
   }
 
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });   
+    toast.present();
+  }
 }

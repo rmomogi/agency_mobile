@@ -1,10 +1,46 @@
-<ion-content class='background'>
-	<ion-list>
-		<ion-card *ngFor="let item of services">		
-		  <ion-card-header>{{ item.name }} </ion-card-header>		
-		  <ion-card-content>
-		    {{ item.description }}
-		  </ion-card-content>		
-		</ion-card>
+<ion-content class='background'>	
+	<ion-list no-border>				
+		<ion-item *ngFor="let item of items" no-padding class="item-trns">
+			<ion-grid>
+				<ion-row>
+					<ion-col col-4 col-sm>
+						<span class="color-secondary font-bold">{{ item.name }}</span>						
+					</ion-col>
+
+					<ion-col col-5>
+						
+					</ion-col>
+
+					<ion-col col-3 text-right>
+						<small class='color-secondary'>R$ {{ item.price.replace(".", ",") }}</small>
+					</ion-col>
+
+					<ion-col col-1 text-center>
+						
+					</ion-col>
+
+				</ion-row>						
+
+				<ion-row>
+					<ion-col col-10 style='white-space:normal; line-height: 80%;'>
+						<small>{{ item.description.substring(0, 100) }}</small>	
+					</ion-col>
+
+					<ion-col col-2>
+						<img src="assets/imgs/24_horas.png" style="width: 24px; height: 24px;"/>  				
+					</ion-col>
+
+				</ion-row>						
+			</ion-grid>
+		</ion-item>
 	</ion-list>
+
 </ion-content>
+
+<ion-footer no-border no-shadow>
+	<ion-row>
+		<ion-col col-8 offset-2>
+			<button ion-button class="primary" round full type="button">Comprar</button>
+		</ion-col>
+	</ion-row>
+</ion-footer>

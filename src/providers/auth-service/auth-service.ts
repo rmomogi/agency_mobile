@@ -6,24 +6,22 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthService {
   private url = 'http://localhost:8080/';
-  
+  private headers = new Headers()
+
   constructor(public http: Http, public storage: Storage) {
-  	console.log('AuthService Provider')    
+  	this.headers.append("Authorization", "Basic YXBwbGljYXRpb246c2VjcmV0")
+    this.headers.append("Access-Control-Allow-Methods", "*")
+    this.headers.append("Content-Type", "application/x-www-form-urlencoded")
   }
 
   login(credentials){
-    let header = new Headers()
-    header.append("Authorization", "Basic YXBwbGljYXRpb246c2VjcmV0")
-    header.append("Access-Control-Allow-Methods", "*")
-    header.append("Content-Type", "application/x-www-form-urlencoded");
-
     let params = new URLSearchParams()
     params.append('grant_type', 'password');
     params.append('username', credentials.email);
     params.append('password', credentials.password);
     
   	return new Promise((resolve, reject) => {
-  		this.http.post(this.url + 'oauth/token', params, new RequestOptions({ headers: header }))
+  		this.http.post(this.url + 'oauth/token', params, new RequestOptions({ headers: this.headers }))
   			.subscribe(res => {          
           this.storage.set('token', res.json())          
   				resolve();
@@ -33,10 +31,7 @@ export class AuthService {
   	});
   }
 
-  register(data){
-    let header = new Headers()
-    header.append("Content-Type", "application/x-www-form-urlencoded");
-
+  register(data){    
     let params = new URLSearchParams()
     params.append('email', data.email);
     params.append('password', data.password);

@@ -1,25 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
   selector: 'page-service',
   templateUrl: 'service.html',
 })
-export class ServicePage {
+export class ServicePage {	
+
+	public items = []
 	
-	public results = [];
-
-  constructor(public navCtrl: NavController, private storage: Storage) {
-  }
-
-  ionViewDidEnter() {
-    
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.items = navParams.data
   }
 
 }

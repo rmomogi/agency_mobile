@@ -50,17 +50,11 @@ export class LoginPage {
       duration: 3000,
       position: 'bottom',
       dismissOnPageChange: true
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
+    });   
     toast.present();
   }
 
-  ionViewDidLoad(): void {
-    
+  ionViewDidLoad(): void {    
     this.storage.get('intro-done').then(done => {
       if (!done) {
         this.storage.set('intro-done', true);

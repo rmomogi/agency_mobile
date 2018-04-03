@@ -1,8 +1,9 @@
-<ion-content padding class='background'>
-
-	<ion-tabs>
-	  <ion-tab [root]="service" tabTitle="Serviços"></ion-tab>
-	  <ion-tab [root]="package" tabTitle="Pacotes"></ion-tab>	  	  
+<ion-content style="height: 100%; width: 100%">
+	
+	<ion-tabs tabsPlacement='top'>
+  	<ion-tab [root]="servicePage" class="tab-services" tabTitle="Serviços" tabIcon="" [rootParams]="services"></ion-tab>
+		<ion-tab [root]="packagePage" class="tab-packages" tabTitle="Pacotes" tabIcon="" [rootParams]="packages"></ion-tab>	  	  	  
 	</ion-tabs>
-
+	
+	
 </ion-content>

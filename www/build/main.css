@@ -25704,8 +25704,29 @@ ion-navbar.toolbar {
   background: green;
 }
 
-scroll-content {
-  overflow-y: auto;
+ion-list {
+  background-color: transparent !important;
+}
+
+ion-item.item-trns {
+  background-color: transparent;
+  color: white;
+}
+
+.color-secondary {
+  color: #fcc308;
+}
+
+.color-primary {
+  color: #6e3d85;
+}
+
+.scroll-content {
+  overflow-y: hidden !important;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 .tab-button span {
